@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+*{
+  font-family: 'Poppins', 'sans-serif';
+}
+
+
+.nav-style {    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: url('https://www.zembula.com/wp-content/uploads/2019/10/header-background-01.png');
+}
+
+a {
+   border: 1;
+   margin-right: 10px;
+   padding: 15px;
+}
+
+a:hover{
+    background-color: rgb(119, 247, 252);
+  }
+
+h1 {
+    margin-left: 300px;
+}
+
+
+
