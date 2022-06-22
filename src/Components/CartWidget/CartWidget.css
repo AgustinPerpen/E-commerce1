@@ -1,0 +1,10 @@
+button{
+    background: none;
+    border: none;
+}
+
+.cart {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
