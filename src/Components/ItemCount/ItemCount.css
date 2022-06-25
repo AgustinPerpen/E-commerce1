@@ -1,0 +1,25 @@
+.counter-button{
+    border: 50px;
+    font-size: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+.add-button{
+    border: 50px;
+    background: none;
+}
+
+.button-container{
+    font-size: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+.background-counter{
+    background: none;
+    border: 100px;
+}
+
+
+

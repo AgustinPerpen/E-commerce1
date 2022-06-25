@@ -6,13 +6,13 @@
   margin: 10px; 
   background: none;
   border: none;
-}
-
+} 
 
 .nav-style {    
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 40px;
 }
 
 a {
@@ -25,7 +25,7 @@ a:hover{
     background-color: rgb(131, 130, 130);
   }
 
-h1 {
+.title {
     margin-left: 300px;
 }
 
