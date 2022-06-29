@@ -1,6 +1,7 @@
 import React from 'react'
 import './ItemListContainer.css'
 import ItemCount from '../ItemCount/ItemCount'
+import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = ({greeting}) => {
 
@@ -11,7 +12,8 @@ const ItemListContainer = ({greeting}) => {
   return (
     <div>     
         <span className='landing'>{greeting}</span>
-        <ItemCount stock={10} onAdd={onAdd} />    
+        <ItemList/>
+        <ItemCount stock={10} onAdd={onAdd} />
     </div>
   )
 }
