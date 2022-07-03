@@ -27,7 +27,7 @@ const ItemList = () => {
   return (
     <div>        
         <div className='sweet-loading'>
-            {loading ? <Spinner/> : <Item item={itemList}/>}
+            {loading ? <Spinner/> : itemList.map((item)=><Item key={item.id} item={item}/>)}
         </div>
     </div>
   )

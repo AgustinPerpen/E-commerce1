@@ -8,21 +8,21 @@ import destornillador from '../../assets/destornillador.jpg'
             image: <img width='50px' height='50px' src={destornillador}></img>,
             title:'Destornilladores',
             price:"$500",
-            stock: '5',
+            stock: 10,
         },
         {
             id:2,
             image: <img width='50px' height='50px' src={martillo}></img>,
             title:'Martillos',
             price:"$1000",
-            stock: '5',
+            stock: 5,
         },
         {
             id:3,
             image: <img width='50px' height='50px' src={cable}></img>,
             title:'Cable x M',
             price:"$20",
-            stock: '5m',
+            stock: 7,
         }
     ]
 

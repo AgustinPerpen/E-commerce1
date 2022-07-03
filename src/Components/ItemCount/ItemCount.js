@@ -22,7 +22,7 @@ const ItemCount = ({onAdd, stock}) => {
 
     const handlerAddToCart = () => {
         if (counter > stock) {
-            console.log('Solo quedan',stock,'productos') 
+            console.log('Solo quedan',stock,'productos disponibles') 
         }else{
         onAdd(counter);
         resetCount()
