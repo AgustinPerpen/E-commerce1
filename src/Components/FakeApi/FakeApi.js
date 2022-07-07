@@ -1,6 +1,7 @@
 import martillo from '../../assets/martillo.png'
 import cable from '../../assets/cable.jpg'
 import destornillador from '../../assets/destornillador.jpg'
+import borcegos from '../../assets/borcegos.jpg'
 
     const products = [
         {
@@ -8,6 +9,7 @@ import destornillador from '../../assets/destornillador.jpg'
             image: <img width='50px' height='50px' src={destornillador}></img>,
             title:'Destornilladores',
             price:"$500",
+            category: '/category/herramientas',
             stock: 10,
         },
         {
@@ -15,6 +17,7 @@ import destornillador from '../../assets/destornillador.jpg'
             image: <img width='50px' height='50px' src={martillo}></img>,
             title:'Martillos',
             price:"$1000",
+            category: '/category/herramientas',
             stock: 5,
         },
         {
@@ -22,18 +25,53 @@ import destornillador from '../../assets/destornillador.jpg'
             image: <img width='50px' height='50px' src={cable}></img>,
             title:'Cable x M',
             price:"$20",
+            category: '/category/herramientas',
+            stock: 7,
+        },
+        {
+            id:4,
+            image: <img width='50px' height='50px' src={borcegos}></img>,
+            title:'Borcegos',
+            price:"$20",
+            category: '/category/indumentaria',
             stock: 7,
         }
     ]
 
-export const getData = new Promise ((res, rej) =>{
+export const getData = (categoryId) => {
 
-    let condition = true
+  
+  return new Promise ((res, rej) => {
+    
+    const filteredProducts = products.filter((p) => p.category === categoryId)
+
     setTimeout(()=>{
-      if(condition){
-        res(products)
+      
+      if(categoryId){
+        res(filteredProducts)
       }else{
-        rej('Error')
+        res(products)
       }
-    },2000)
+    }, 2000)
   })
+}
+
+export const getDetailedList = (id) => {
+
+  
+  return new Promise ((res, rej) => {
+    
+    const detailedProducts = products.find((p) => p.id === Number (id))
+
+    setTimeout(()=>{
+      
+      if(id){
+        res(detailedProducts)
+      }else{
+        res(products)
+      }
+    }, 2000)
+  })
+}
+
+

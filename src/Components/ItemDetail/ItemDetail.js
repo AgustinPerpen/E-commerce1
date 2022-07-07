@@ -7,18 +7,17 @@ const ItemDetail = ({detailedItem}) => {
         console.log('Se agregaron ', counter, 'productos');
     }
 
-  return (
-
+    return (
     <div className="card">
-    <p>{detailedItem.image}</p>
-    <div className="card-body">
-        <p className="card-text">{detailedItem.title}</p>
-        <p className="card-text">{detailedItem.price}</p>
-        <p>Detalle</p>
-        <ItemCount  stock={detailedItem.stock} onAdd={onAdd} />
+        <p>{detailedItem.image}</p>
+        <div className="card-body">
+            <p className="card-text">{detailedItem.title}</p>
+            <p className="card-text">{detailedItem.price}</p>
+            <p>Detalle</p>
+            <ItemCount  stock={detailedItem.stock} onAdd={onAdd} />
+        </div>
     </div>
-</div>
-        )
-    }
+    )
+}
 
 export default ItemDetail

@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import { Spinner } from 'reactstrap'
-import { getData } from '../FakeApi/FakeApi'
+import { getData, getDetailedList, getProd } from '../FakeApi/FakeApi'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import {useParams} from 'react-router-dom';
 
 const ItemDetailContainer = () => {
+
+  /*const {id} = useParams()*/
 
     const [detailedItem, setDetailedItem] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const getDetailedList = async () => {
-        try{
-          const response = await getData
-          setDetailedItem(response)
-        }catch(error){
-          console.log(error)
-        }finally{
-          setLoading(false) 
-        }
-      }
+    const {id} = useParams()
 
     useEffect(() => {
-        getDetailedList()
-        }, []); 
+      setLoading(true)
+        getDetailedList(id)
+          .then((res) => {
+            setDetailedItem(res)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+          .finally(() => {
+            setLoading(false)
+          })
+      }, [id]);    
 
   return (
     <div>
-      {loading ? <Spinner/> : detailedItem.map((detailedItem) =><ItemDetail key={detailedItem.id} detailedItem={detailedItem}/>)}
+      {loading ? <Spinner/> : <ItemDetail detailedItem={detailedItem}/>}
     </div>
   )
 }

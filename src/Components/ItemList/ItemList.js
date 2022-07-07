@@ -4,12 +4,12 @@ import { getData } from '../FakeApi/FakeApi'
 import Item from '../Item/Item'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const ItemList = () => {        
+const ItemList = ({itemList}) => {        
     
     const [loading, setLoading] = useState(true)
-    const [itemList, setItemList] = useState([])
+    /*const [itemList, setItemList] = useState([])*/
 
-    const getItemList = async () => {
+    /*const getItemList = async () => {
         try{
           const response = await getData
           setItemList(response)
@@ -18,16 +18,25 @@ const ItemList = () => {
         }finally{
           setLoading(false)
         }
-      }
+      }*/
 
-    useEffect(() => {
+      /*useEffect(() => {
+          fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(data => setItemList(data))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+    }, []);*/
+
+
+    /*useEffect(() => {
         getItemList()
-        }, []); 
+        }, []); */
 
   return (
     <div>        
         <div className='sweet-loading'>
-            {loading ? <Spinner/> : itemList.map((item)=><Item key={item.id} item={item}/>)}
+            {itemList.map((item)=><Item key={item.id} item={item}/>)}
         </div>
     </div>
   )
