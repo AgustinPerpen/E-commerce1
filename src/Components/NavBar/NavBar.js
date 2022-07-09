@@ -9,18 +9,18 @@ const NavBar = () => {
   const categories = [
     {
         id: 1,
-        path: '/',
+        path:'/',
         name: 'Home',
     },
     {
         id: 2,
-        path: '/category/herramientas',
+        path:'/category/herramientas',
         name: 'Herramientas',
     },
     {
         id: 3,
-        path: '/category/indumentaria',
-        name: 'Indumentaria',
+        path:'/category/indumentaria',
+        name:'Indumentaria',
     },
 ];
 
@@ -37,7 +37,7 @@ const NavBar = () => {
             ))}    
         </nav>
         <div className='cart'>
-          <CartWidget/>
+          <Link to='/cart'><CartWidget/></Link>
         </div>
        
       </div>

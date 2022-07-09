@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Spinner } from 'reactstrap'
-import { getData, getDetailedList, getProd } from '../FakeApi/FakeApi'
+import { getDetailedList} from '../FakeApi/FakeApi'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {useParams} from 'react-router-dom';
 
-const ItemDetailContainer = () => {
 
-  /*const {id} = useParams()*/
+const ItemDetailContainer = () => {
 
     const [detailedItem, setDetailedItem] = useState([])
     const [loading, setLoading] = useState(true)
@@ -25,7 +24,9 @@ const ItemDetailContainer = () => {
           .finally(() => {
             setLoading(false)
           })
-      }, [id]);    
+      }, [id]);
+      
+   
 
   return (
     <div>

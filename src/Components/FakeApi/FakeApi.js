@@ -9,7 +9,7 @@ import borcegos from '../../assets/borcegos.jpg'
             image: <img width='50px' height='50px' src={destornillador}></img>,
             title:'Destornilladores',
             price:"$500",
-            category: '/category/herramientas',
+            category:'herramientas',
             stock: 10,
         },
         {
@@ -17,7 +17,7 @@ import borcegos from '../../assets/borcegos.jpg'
             image: <img width='50px' height='50px' src={martillo}></img>,
             title:'Martillos',
             price:"$1000",
-            category: '/category/herramientas',
+            category:'herramientas',
             stock: 5,
         },
         {
@@ -25,7 +25,7 @@ import borcegos from '../../assets/borcegos.jpg'
             image: <img width='50px' height='50px' src={cable}></img>,
             title:'Cable x M',
             price:"$20",
-            category: '/category/herramientas',
+            category:'herramientas',
             stock: 7,
         },
         {
@@ -33,7 +33,7 @@ import borcegos from '../../assets/borcegos.jpg'
             image: <img width='50px' height='50px' src={borcegos}></img>,
             title:'Borcegos',
             price:"$20",
-            category: '/category/indumentaria',
+            category:'indumentaria',
             stock: 7,
         }
     ]
