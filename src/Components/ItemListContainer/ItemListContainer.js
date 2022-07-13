@@ -29,7 +29,7 @@ const ItemListContainer = ({greeting}) => {
     }, [categoryId]);
 
   return (
-    <div>     
+    <div className='everything'>     
         <span className='landing'>{greeting}</span>
         {loading ? <Spinner/> : <ItemList itemList={itemList}/>}
     </div>

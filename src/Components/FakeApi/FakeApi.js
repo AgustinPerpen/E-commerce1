@@ -6,7 +6,7 @@ import borcegos from '../../assets/borcegos.jpg'
     const products = [
         {
             id:1,
-            image: <img width='50px' height='50px' src={destornillador}></img>,
+            image: <img width='100px' height='100px' src={destornillador}></img>,
             title:'Destornilladores',
             price:"$500",
             category:'herramientas',
@@ -14,7 +14,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:2,
-            image: <img width='50px' height='50px' src={martillo}></img>,
+            image: <img width='100px' height='100px' src={martillo}></img>,
             title:'Martillos',
             price:"$1000",
             category:'herramientas',
@@ -22,7 +22,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:3,
-            image: <img width='50px' height='50px' src={cable}></img>,
+            image: <img width='100px' height='100px' src={cable}></img>,
             title:'Cable x M',
             price:"$20",
             category:'herramientas',
@@ -30,7 +30,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:4,
-            image: <img width='50px' height='50px' src={borcegos}></img>,
+            image: <img width='100px' height='100px' src={borcegos}></img>,
             title:'Borcegos',
             price:"$20",
             category:'indumentaria',

@@ -7,11 +7,11 @@ const Item = ({item}) => {
   return (
     
     <div className="card">
-    <p>{item.image}</p>
-    <div className="card-body">
-        <h3 className="card-text">{item.title}</h3>
-        <Link to={`/product/${item.id}`}>Ver detalle</Link>
-    </div>
+      <p>{item.image}</p>
+        <div className="card-body">
+            <h3 className="card-text">{item.title}</h3>
+            <Link to={`/product/${item.id}`}>Ver detalle</Link>
+        </div>
     </div>
   )
 }

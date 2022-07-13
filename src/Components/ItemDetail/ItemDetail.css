@@ -8,6 +8,12 @@
     padding: auto;
     background-color: white;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
- }
+    background-color: lightpink
+}
+
+.card-body {
+    margin-top: 100px;
+}
