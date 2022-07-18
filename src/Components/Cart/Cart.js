@@ -9,15 +9,16 @@ const Cart = () => {
   const { prodToCart } = useContext(cartContext)
   const { deleteFromCart } = useContext(cartContext)
   const {clear} = useContext(cartContext)
+  const {subTotal} = useContext(cartContext)
 
   return (
     <div>
       {
         quantityProducts === 0
         ?
-        <p>No hay productos en el carrito click <Link to='/'>aqui</Link> para ir a comprar</p>
+        <p>No hay productos en el carrito click<Link to='/'>aqui</Link>para ir a comprar</p>
         :
-        prodToCart.map((product) => <p key={product.id} product={product.title}> {product.image} {product.title}: {product.quantity} unidades <button>Eliminar</button></p>)
+        prodToCart.map((product) => <p key={product.id} product={product.title}> {product.image} {product.title}: {product.quantity} unidades ${product.price}<button onClick={() => deleteFromCart(product.id)}>Eliminar</button></p>)
       }
       {
         quantityProducts === 0
@@ -26,6 +27,16 @@ const Cart = () => {
         :
         <button onClick={clear}>Eliminar todo</button>        
       }
+      <div>
+        {
+          quantityProducts === 0
+          ?
+          <></>
+          :
+          <p>Total ${subTotal}</p>
+        }        
+      </div>
+      
     </div>
   )
 }

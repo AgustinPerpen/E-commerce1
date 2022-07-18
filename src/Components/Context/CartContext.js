@@ -8,9 +8,11 @@ const CustomProvider = ({children}) => {
 
     const [prodToCart, setProdToCart] = useState([])
     const [quantityProducts, setQuantityProducts] = useState(0)
+    const [subTotal, setSubTotal] = useState('')
 
     useEffect(() => {
       getQuantity()
+      total()
     },[prodToCart])
 
     const addToCart = (prod, newQuantity) => {
@@ -18,10 +20,16 @@ const CustomProvider = ({children}) => {
       const updatedCart = prodToCart.filter(p => p.id !== prod.id)
       setProdToCart([...updatedCart, {...prod, quantity: quantity + newQuantity}])
       getQuantity()
+      total()
+    }
+
+    const total = () => {
+      setSubTotal(prodToCart.reduce((acum, actual) => acum + actual.price * actual.quantity, 0))
     }
 
     const deleteFromCart = (id) => {
-        setProdToCart(prodToCart.filter(p => p.id !== id))
+        const filteredCart = prodToCart.filter((p) => p.id !== id)
+        setProdToCart(filteredCart)
     }
 
     const isInList = (id) => {
@@ -39,7 +47,7 @@ const CustomProvider = ({children}) => {
     }
 
   return (
-    <Provider value={{addToCart, deleteFromCart, isInList, quantityProducts, prodToCart, clear}}>
+    <Provider value={{addToCart, deleteFromCart, isInList, quantityProducts, prodToCart, clear, subTotal, total}}>
         {children}
     </Provider>
   )
