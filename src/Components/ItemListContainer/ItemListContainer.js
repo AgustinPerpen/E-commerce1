@@ -6,6 +6,8 @@ import {Spinner} from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { getData } from '../FakeApi/FakeApi'
 import { useParams } from 'react-router-dom'
+import { db } from "../../Firebase/Firebase"
+import { getDocs, collection, query, where } from "firebase/firestore"
 
 const ItemListContainer = ({greeting}) => {
 
@@ -15,10 +17,37 @@ const ItemListContainer = ({greeting}) => {
   const {categoryId} = useParams()
 
   useEffect(() => {
-    setLoading(true)
-      getData(categoryId)
-        .then((res) => {
-          setItemList(res)
+
+    const productsCollection = collection(db, "productos")
+    const q = query(productsCollection, where("category", "==", `${categoryId}`))
+
+    if(categoryId){
+      getDocs(q)
+      .then(result => {
+        const listResult = result.docs.map(product =>{
+            return{
+              id: product.id,
+              ...product.data(),
+            } 
+        })
+        setItemList(listResult)
+      })
+      .catch((error) => {
+      console.log(error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+      }else{
+        getDocs(productsCollection)
+        .then(result => {
+          const listResult = result.docs.map(product =>{
+            return{
+            id: product.id,
+            ...product.data(),
+          } 
+        })
+        setItemList(listResult)
         })
         .catch((error) => {
           console.log(error)
@@ -26,7 +55,8 @@ const ItemListContainer = ({greeting}) => {
         .finally(() => {
           setLoading(false)
         })
-    }, [categoryId]);
+      }
+  }, [categoryId]);
 
   return (
     <div className='everything'>     

@@ -21,7 +21,7 @@ const ItemDetail = ({detailedItem}) => {
     
     return (
     <div className="card">
-        <p>{detailedItem.image}</p>
+        <img width='100px' height='100px' src={detailedItem.image}/>
         <div className="card-body">
             <p className="card-text">{detailedItem.title}</p>
             <p className="card-text">${detailedItem.price}</p>

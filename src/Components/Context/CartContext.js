@@ -18,8 +18,8 @@ const CustomProvider = ({children}) => {
     const addToCart = (prod, newQuantity) => {
       const { quantity = 0 } = prodToCart.find(p => p.id === prod.id) || {}
       const updatedCart = prodToCart.filter(p => p.id !== prod.id)
+      // Generar suma de precio en items individuales      
       setProdToCart([...updatedCart, {...prod, quantity: quantity + newQuantity}])
-      getQuantity()
       total()
     }
 

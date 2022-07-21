@@ -7,7 +7,7 @@ const Item = ({item}) => {
   return (
     
     <div className="card">
-      <p>{item.image}</p>
+      <img width='100px' height='100px' key={item} src={item.image}></img>
         <div className="card-body">
             <h3 className="card-text">{item.title}</h3>
             <Link to={`/product/${item.id}`}>Ver detalle</Link>

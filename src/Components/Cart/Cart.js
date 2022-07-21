@@ -18,25 +18,12 @@ const Cart = () => {
         ?
         <p>No hay productos en el carrito click<Link to='/'>aqui</Link>para ir a comprar</p>
         :
-        prodToCart.map((product) => <p key={product.id} product={product.title}> {product.image} {product.title}: {product.quantity} unidades ${product.price}<button onClick={() => deleteFromCart(product.id)}>Eliminar</button></p>)
-      }
-      {
-        quantityProducts === 0
-        ?
-        <></>
-        :
-        <button onClick={clear}>Eliminar todo</button>        
-      }
-      <div>
-        {
-          quantityProducts === 0
-          ?
-          <></>
-          :
+        <div>
+          {prodToCart.map((product) => <p key={product.id} product={product.title}> <img width='100px' height='100px' src={product.image}></img> {product.title}: {product.quantity} unidades ${product.price * product.quantity}<button onClick={() => deleteFromCart(product.id)}>Eliminar</button></p>)}
+          <button onClick={clear}>Eliminar todo</button>        
           <p>Total ${subTotal}</p>
-        }        
-      </div>
-      
+        </div>
+      }      
     </div>
   )
 }
