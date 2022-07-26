@@ -4,7 +4,7 @@ import { getDetailedList} from '../FakeApi/FakeApi'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {useParams} from 'react-router-dom';
 import { db } from "../../Firebase/Firebase"
-import { doc, getDocs, collection, query, getDoc } from "firebase/firestore"
+import { doc, getDoc } from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {    

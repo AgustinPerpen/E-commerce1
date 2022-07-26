@@ -6,6 +6,7 @@ import Cart from './Components/Cart/Cart';
 import {  BrowserRouter, Routes, Route} from "react-router-dom"
 import CustomProvider from './Components/Context/CartContext'
 import CartWidget from './Components/CartWidget/CartWidget';
+import Sales from './Components/Sales/Sales';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path='/product/:id' element={<ItemDetailContainer />}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/cart' element={<CartWidget/>}/>
+            <Route path='/sales' element={<Sales/>}/>
           </Routes>
         </CustomProvider>
       </BrowserRouter>     

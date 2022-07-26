@@ -22,6 +22,7 @@ const Cart = () => {
           {prodToCart.map((product) => <p key={product.id} product={product.title}> <img width='100px' height='100px' src={product.image}></img> {product.title}: {product.quantity} unidades ${product.price * product.quantity}<button onClick={() => deleteFromCart(product.id)}>Eliminar</button></p>)}
           <button onClick={clear}>Eliminar todo</button>        
           <p>Total ${subTotal}</p>
+          <Link to="/sales"><button>Finalizar compra</button></Link>
         </div>
       }      
     </div>
