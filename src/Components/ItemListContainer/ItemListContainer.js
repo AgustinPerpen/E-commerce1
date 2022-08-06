@@ -59,9 +59,11 @@ const ItemListContainer = ({greeting}) => {
   }, [categoryId]);
 
   return (
-    <div className='everything'>     
-        <span className='landing'>{greeting}</span>
-        {loading ? <Spinner/> : <ItemList itemList={itemList}/>}
+    <div className='background-image'>
+          <span className='landing'>{greeting}</span>
+      <div className='everything'>     
+          {loading ? <Spinner/> : <ItemList itemList={itemList}/>}
+      </div>
     </div>
   )
 }

@@ -1,12 +1,8 @@
-import martillo from '../../assets/martillo.png'
-import cable from '../../assets/cable.jpg'
-import destornillador from '../../assets/destornillador.jpg'
-import borcegos from '../../assets/borcegos.jpg'
 
     const products = [
         {
             id:1,
-            image: <img width='100px' height='100px' src={destornillador}></img>,
+            image: <img width='100px' height='100px' ></img>,
             title:'Destornilladores',
             price:500,
             category:'herramientas',
@@ -14,7 +10,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:2,
-            image: <img width='100px' height='100px' src={martillo}></img>,
+            image: <img width='100px' height='100px'></img>,
             title:'Martillos',
             price:1000,
             category:'herramientas',
@@ -22,7 +18,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:3,
-            image: <img width='100px' height='100px' src={cable}></img>,
+            image: <img width='100px' height='100px'></img>,
             title:'Cable x M',
             price:20,
             category:'herramientas',
@@ -30,7 +26,7 @@ import borcegos from '../../assets/borcegos.jpg'
         },
         {
             id:4,
-            image: <img width='100px' height='100px' src={borcegos}></img>,
+            image: <img width='100px' height='100px'></img>,
             title:'Borcegos',
             price:20,
             category:'indumentaria',

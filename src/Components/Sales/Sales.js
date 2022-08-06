@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { cartContext } from '../Context/CartContext'
 import { Link } from 'react-router-dom'
-import { addDoc, collection, getDocs } from "firebase/firestore"
+import { addDoc, collection } from "firebase/firestore"
 import { db } from "../../Firebase/Firebase"
 import "./Sales.css"
 
@@ -64,17 +64,27 @@ const Sales = () => {
     }
 
     const confirmHandler = () => {
-        if(nameHandler){
-            if(lastNameHandler){
-                if(directionHandler){
-                    if(emailHandler){
-                        if(phoneHandler){
+        if(name.trim().length !== 0){
+            if(lastName.trim().length !== 0){
+                if(direction.trim().length !== 0){
+                    if(email.trim().length !== 0){
+                        if(phoneNumber !== "0"){
                             confirmedOrder()
                             clear()  
+                        }else{
+                            alert("Debe llenar los campos requeridos")
                         }
+                    }else{
+                        alert("Debe llenar los campos requeridos")
                     }
+                }else{
+                    alert("Debe llenar los campos requeridos")
                 }
+            }else{
+                alert("Debe llenar los campos requeridos")
             }
+        }else{
+            alert("Debe llenar los campos requeridos")
         }
     }
 
@@ -124,49 +134,52 @@ const Sales = () => {
     }
 
   return (
-    <div>
+    <div className='order-container'>
         {
             confirm
             ?
-            <div>
+            <div className='end'>
                 <h3>Que disfrute su compra!!!</h3>
                 <p>Su codigo de seguimiento es:</p>
-                {userId}
+                <b>{userId}</b>
             </div>
             :
-            <div>
+            <div className='last-card'>
                 <div className='selected-products'>
                     <h3>Su compra:</h3>
-                    {prodToCart.map((product) => <p key={product.id} product={product.title}> <img width='100px' height='100px' src={product.image}></img> {product.title}: {product.quantity} unidades ${product.price * product.quantity}</p>)}
+                    {prodToCart.map((product) => <p key={product.id} product={product.title}> {product.title}: {product.quantity} unidades ${product.price * product.quantity}</p>)}
+                    Total: ${subTotal}
                 </div>
-                <div className='form-container'>
-                    <p><b>Ingrese sus datos para finalizar</b></p>
-                    <form>
-                        <div>
+                    <p><b>Ingrese sus datos para finalizar:</b></p>
+                <div >
+                    <form className='form-container'>
+                       
                             <label>Nombre:</label>
                             <input type="text" onChange={nameHandler}/>
-                        </div>
-                        <div>
+                        
+                       
                             <label>Apellido:</label>
                             <input type="text" onChange={lastNameHandler}/>
-                        </div>
+                        
                             <label>Direccion:</label>
                             <input type="text" onChange={directionHandler}/>
-                        <div>
-                        </div>
+                        
                             <label>Correo electronico</label>
                             <input type="email" onChange={emailHandler}/>
-                        <div>
+                        
                             <label>Numero de telefono</label>
                             <input type="number" onChange={phoneHandler}></input>
+                        
+                    </form> 
+                    <div className='order-buttons'>
+                        <div>
+                            <button className='confirm' onClick={confirmHandler}>Confirmar</button>
                         </div>
-                    </form>
-                    <div>
-                        <button className='confirm' onClick={confirmHandler}>Confirmar</button>
-                    </div> 
-                    <div>
-                        <Link to="/"><button>Seguir comprando</button></Link>
-                    </div>       
+                        <div className='continue'>
+                            <Link to="/" ><button>Seguir comprando</button></Link>
+                        </div>
+                    </div>                   
+                         
                 </div>
             </div>
         }   

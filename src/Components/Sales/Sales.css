@@ -4,6 +4,40 @@
     align-items: center;
 }
 
-.confirm{
-    
+.last-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    width: 500px; 
+    background-color: rgb(184, 183, 255);   
+    opacity: 0.9;
+    align-items: center;
+}
+
+.order-container{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.order-buttons{
+    margin-top: 4%;
+}
+
+.continue{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.end{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    width: 500px; 
+    background-color: rgb(184, 183, 255);   
+    opacity: 0.9;
+    align-items: center;
 }

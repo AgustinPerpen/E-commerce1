@@ -1,8 +1,6 @@
 .counter-button{
     border: 50px;
     font-size: 100px;
-    text-align: center;
-    justify-content: center;
 }
 
 .add-button{
@@ -13,13 +11,16 @@
 .button-container{
     font-size: 50px;
     text-align: center;
-    justify-content: center;
     margin-top: 100px;
+    align-items: flex-end;
 }
 
-.background-counter{
-    background: none;
+.background-counter{    
     border: 100px;
+}
+
+.take{
+    background: none;
 }
 
 

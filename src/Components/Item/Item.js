@@ -6,13 +6,14 @@ const Item = ({item}) => {
 
   return (
     
-    <div className="card">
-      <img width='100px' height='100px' key={item} src={item.image}></img>
-        <div className="card-body">
-            <h3 className="card-text">{item.title}</h3>
-            <Link to={`/product/${item.id}`}>Ver detalle</Link>
-        </div>
-    </div>
+    <Link className='card-link' to={`/product/${item.id}`}>
+      <div className="card-no-detail">
+        <img width='100%' height='50%' key={item} src={item.image}></img>
+          <div className="card-body">
+              <h3 className="card-text">{item.title}</h3>
+          </div>
+      </div>
+    </Link>
   )
 }
 

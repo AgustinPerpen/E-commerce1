@@ -1,19 +1,38 @@
 .card {
-    width: 350px;
-    height: 380px;
-    margin: 1rem;
+    margin-top: 5%;
+    width: 1000px;
+    height: 800px;
     border: 1px solid black;
     box-shadow: 1px 1px 1px 1px;
-    display: flex;
-    padding: auto;
     background-color: white;
-    flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    background-color: lightpink
+    opacity: 0.9;
 }
 
 .card-body {
-    margin-top: 100px;
+    margin-top: 20px;
+    font-size: 30px;
+    background-color: rgb(184, 183, 255); 
+    width: 100%;
+    opacity: 0.9;
 }
+
+.add-button{
+    align-items: flex-end;
+}
+
+.detail-top{
+    display: flex;
+}
+
+.close-link{
+    margin-left: 65%;
+    text-decoration: none;
+    
+}
+
+.close-cross{
+    font-size: 40px;
+    
+}
+

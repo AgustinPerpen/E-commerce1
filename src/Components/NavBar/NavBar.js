@@ -10,7 +10,7 @@ const NavBar = () => {
     {
         id: 1,
         path:'/',
-        name: 'Home',
+        name: 'Inicio',
     },
     {
         id: 2,
@@ -26,17 +26,23 @@ const NavBar = () => {
 
   return (
       <div className='nav-style'>
-        <Link to='/'><img src={ferreteria} className='logo'></img></Link>
-        <h1 className='title'>Ferreteria e insumos de trabajo</h1>
-        <nav >
+        <div>
+          <Link to='/'><img src={ferreteria} className='logo'></img></Link>
+        </div>
+        <div>
+          <h1 className='title'>Ferreteria e insumos de trabajo</h1>
+        </div>
+        <div>
+          <nav >
 
-          {categories.map((category) => (
-                    <Link to={category.path} key={category.id}>
-                        {category.name}
-                    </Link>
-            ))}    
-        </nav>
-        <div className='cart'>
+            {categories.map((category) => (
+                      <Link className='nav-bar' to={category.path} key={category.id}>
+                          {category.name}
+                      </Link>
+              ))}    
+          </nav>
+        </div>
+        <div className='cart-widget'>
           <Link to='/cart'><CartWidget/></Link>
         </div>
        
