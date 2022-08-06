@@ -68,7 +68,7 @@ const Sales = () => {
             if(lastName.trim().length !== 0){
                 if(direction.trim().length !== 0){
                     if(email.trim().length !== 0){
-                        if(phoneNumber !== "0"){
+                        if(phoneNumber !== "0" && phoneNumber !== 0){
                             confirmedOrder()
                             clear()  
                         }else{
