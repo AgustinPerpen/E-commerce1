@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import shoppingCart from '../../assets/shoppingCart.png'
 import { cartContext } from '../Context/CartContext'
 import './CartWidget.css'
 
@@ -10,7 +9,7 @@ const CartWidget = () => {
   return (
     <div className='cart-div'>
       <button className='cart-button'>
-        <img src={shoppingCart} className='cart'></img>
+        <img src="https://i.postimg.cc/kXkqYV8M/shopping-Cart.png" className='cart'></img>
         <p>{
             quantityProducts === 0
             ?

@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { cartContext } from '../Context/CartContext'
 import { Link } from 'react-router-dom'
 import { addDoc, collection } from "firebase/firestore"
 import { db } from "../../Firebase/Firebase"
+import { useForm } from 'react-hook-form'
 import "./Sales.css"
 
 const Sales = () => {
 
+    
     const [confirm, setConfirm] = useState(false)
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -14,8 +16,10 @@ const Sales = () => {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState(0)
     const [userId, setUserId] = useState("")
+    const [variable, setVariable] = useState("")
     const [testData, setTestData] = useState("")
-
+    
+    const { register, formState: { errors }, handleSubmit } = useForm()
     const { prodToCart, clear, subTotal } = useContext(cartContext)
 
     const order = {
@@ -24,12 +28,11 @@ const Sales = () => {
             lastName: lastName,
             direction: direction,
             email: email,
-            phoneNumber: phoneNumber,
+            phoneNumber: phoneNumber      
         },
         items: prodToCart.map(p => ({id: p.id, title: p.title, price: p.price, quantity: p.quantity})),
         total: subTotal,
     }
-
 
     /*const repeatedDataChecker = (name) => {
         const orderCollection = collection(db, "orders")
@@ -53,7 +56,8 @@ const Sales = () => {
         }
     }*/
 
-    const confirmedOrder = ()=> {        
+    const confirmedOrder = ()=> {
+            clear()
             const orderCollection = collection(db, "orders")
             addDoc(orderCollection, order)
             .then(({ id }) => {
@@ -63,7 +67,7 @@ const Sales = () => {
         })
     }
 
-    const confirmHandler = () => {
+    /*const confirmHandler = () => {
         if(name.trim().length !== 0){
             if(lastName.trim().length !== 0){
                 if(direction.trim().length !== 0){
@@ -86,51 +90,26 @@ const Sales = () => {
         }else{
             alert("Debe llenar los campos requeridos")
         }
-    }
+    }*/
 
-    const nameHandler = (e) => {
-        if(e.target.value != ''){
+    const nameHandler = (e) => {        
             setName(e.target.value)
-            return true
-        }else{
-            return false
-        }
     }
 
-    const lastNameHandler = (e) => {
-        if(e.target.value != ''){
-            setLastName(e.target.value)
-            return true
-        }else{
-            return false
-        }
+    const lastNameHandler = (e) => {        
+            setLastName(e.target.value)       
     }
     
-    const directionHandler = (e) => {
-        if(e.target.value != ''){
+    const directionHandler = (e) => {        
             setDirection(e.target.value)
-            return true
-        }else{
-            return false
-        }
     }
     
     const emailHandler = (e) => {
-        if(e.target.value != ''){
             setEmail(e.target.value)
-            return true
-        }else{
-            return false
-        }
     }
     
     const phoneHandler = (e) => {
-        if(e.target.value != ''){
-            setPhoneNumber(e.target.value)
-            return true
-        }else{
-            return false
-        }
+            setPhoneNumber(e.target.value)       
     }
 
   return (
@@ -152,28 +131,82 @@ const Sales = () => {
                 </div>
                     <p><b>Ingrese sus datos para finalizar:</b></p>
                 <div >
-                    <form className='form-container'>
+                    <form className='form-container' onSubmit={handleSubmit(confirmedOrder)}>
                        
                             <label>Nombre:</label>
-                            <input type="text" onChange={nameHandler}/>
-                        
+                            <input                                
+                                type="text"
+                               
+                                {
+                                    ...register('name', {
+                                        onChange: (e) => {nameHandler(e)},
+                                        required: true,
+                                    })
+                                }
+                             />
+
+                            {errors.name?.type === 'required' && <p>El campo nombre es requerido</p>}
                        
                             <label>Apellido:</label>
-                            <input type="text" onChange={lastNameHandler}/>
-                        
+                            <input                                
+                                type="text"
+                                
+                                {
+                                    ...register('lastName', {
+                                        onChange: (e) => {lastNameHandler(e)},
+                                        required: true,
+                                    })
+                                }
+                            />
+
+                            {errors.name?.type === 'required' && <p>El campo apellido es requerido</p>}
+
                             <label>Direccion:</label>
-                            <input type="text" onChange={directionHandler}/>
+                            <input 
+                                type="text"
+                                
+                                {
+                                    ...register('address', {
+                                        onChange: (e) => {directionHandler(e)},
+                                        required: true,
+                                    })
+                                }
+                            />
                         
+                            {errors.name?.type === 'required' && <p>El campo direccion es requerido</p>}
+
                             <label>Correo electronico</label>
-                            <input type="email" onChange={emailHandler}/>
+                            <input
+                                type="email"
+                                
+                                {
+                                    ...register('email', {
+                                        onChange: (e) => {emailHandler(e)},
+                                        required: true,
+                                    })
+                                }
+                            />
                         
+                            {errors.name?.type === 'required' && <p>El campo correo electronico es requerido</p>}   
+
                             <label>Numero de telefono</label>
-                            <input type="number" onChange={phoneHandler}></input>
+                            <input
+                                type="number"
+                                
+                                {
+                                    ...register('phone', {
+                                        onChange: (e) => {phoneHandler(e)},
+                                        required: true,
+                                    })
+                                }
+                            />
                         
+                            {errors.name?.type === 'required' && <p>El campo numero de telefono es requerido</p>}  
+                        
+                            <button type="submit" className='confirm'>Confirmar</button>
                     </form> 
                     <div className='order-buttons'>
                         <div>
-                            <button className='confirm' onClick={confirmHandler}>Confirmar</button>
                         </div>
                         <div className='continue'>
                             <Link to="/" ><button>Seguir comprando</button></Link>

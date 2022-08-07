@@ -1,7 +1,6 @@
 import React from 'react'
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget'
-import ferreteria from '../../assets/ferreteria.png'
 import {Link} from "react-router-dom";
 
 const NavBar = () => {
@@ -27,7 +26,7 @@ const NavBar = () => {
   return (
       <div className='nav-style'>
         <div>
-          <Link to='/'><img src={ferreteria} className='logo'></img></Link>
+          <Link to='/'><img src="https://i.postimg.cc/0N15j62X/ferreteria.png" className='logo'></img></Link>
         </div>
         <div>
           <h1 className='title'>Ferreteria e insumos de trabajo</h1>
