@@ -126,7 +126,7 @@ const Sales = () => {
                         
                             {errors.name?.type === 'required' && <p>El campo direccion es requerido</p>}
 
-                            <label>Correo electronico</label>
+                            <label>Correo electronico:</label>
                             <input
                                 type="email"
                                 
@@ -140,7 +140,7 @@ const Sales = () => {
                         
                             {errors.name?.type === 'required' && <p>El campo correo electronico es requerido</p>}   
 
-                            <label>Numero de telefono</label>
+                            <label>Numero de telefono:</label>
                             <input
                                 type="number"
                                 
@@ -160,7 +160,7 @@ const Sales = () => {
                         <div>
                         </div>
                         <div className='continue'>
-                            <Link to="/" ><button>Seguir comprando</button></Link>
+                            <Link to="/" ><button>Seguir comprando:</button></Link>
                         </div>
                     </div>                   
                          

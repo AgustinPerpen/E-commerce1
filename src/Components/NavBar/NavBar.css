@@ -5,13 +5,15 @@
   width: 100px;
   margin: 10px; 
   border: none;
+  mix-blend-mode: multiply;
 } 
 
 .nav-style {    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: darkgray;
+    opacity: 0.8;
 }
 
 .nav-bar{

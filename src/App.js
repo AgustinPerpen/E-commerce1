@@ -3,7 +3,7 @@ import NavBar from './Components/NavBar/NavBar';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 import Cart from './Components/Cart/Cart';
-import {  BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import CustomProvider from './Components/Context/CartContext'
 import CartWidget from './Components/CartWidget/CartWidget';
 import Sales from './Components/Sales/Sales';
